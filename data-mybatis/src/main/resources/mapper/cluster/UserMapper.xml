@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pzlove.mybatis.mapper.cluster.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.pzlove.mybatis.domain.User">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="age" property="age" />
+        <result column="city" property="city" />
+    </resultMap>
+
+    <parameterMap id="User" type="com.pzlove.mybatis.domain.User"/>
+
+    <sql id="Base_Column_List">
+        id, name, age, city
+    </sql>
+
+    <select id="findUserById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List" />
+        from tb_user
+        where id = #{id}
+    </select>
+
+    <select id="findAllUser" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from tb_user
+    </select>
+
+    <insert id="saveUser" parameterMap="User" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        tb_user(id,name,age,city)
+        values
+        (#{id},#{name},#{age},#{city})
+    </insert>
+
+    <update id="updateUser" parameterMap="User">
+        update
+        tb_user
+        set
+        <if test="name!=null">
+            name = #{name},
+        </if>
+        <if test="age!=null">
+            age = #{age},
+        </if>
+        <if test="city!=null">
+            city = #{city}
+        </if>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="java.lang.Long">
+        delete from
+        tb_user
+        where
+        id = #{id}
+    </delete>
+
+
+
+
+
+
+
+
+
+</mapper>

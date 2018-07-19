@@ -1,0 +1,17 @@
+server:
+  port: 9094
+spring:
+  master:
+    datasource:
+      username: root
+      password: root
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/springbootdb?characterEncoding=utf8&useSSL=true
+      flag: true
+  cluster:
+    datasource:
+      username: root
+      password: root
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/springboot_cluster?characterEncoding=utf8&useSSL=true
+      flag: true

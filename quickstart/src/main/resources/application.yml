@@ -1,0 +1,11 @@
+com:
+  didispace:
+    blog:
+      name: 程序猿DD
+      title: Spring Boot教程
+      desc: ${com.didispace.blog.name}正在努力写《${com.didispace.blog.title}》
+      test1: ${random.int(10)}
+      test2: ${random.int[10,20]}
+      value: ${random.value}
+server:
+  port: ${random.int[8080,8090]}
