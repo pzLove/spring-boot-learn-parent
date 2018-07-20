@@ -18,7 +18,7 @@ public class UserServiceTest {
         //insert
         //User user=new User(null,"pzl",27,"信阳市");
         //update
-        User user=new User(2L,"pzl",24,"信阳市");
+        User user=new User(2L,"pzl",24,"信阳市","13774469589");
         service.saveUser(user);
     }
 

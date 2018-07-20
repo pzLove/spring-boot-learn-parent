@@ -33,5 +33,7 @@ public class User {
     private Integer age;
     @Column(name = "city",length = 100)
     private String city;
+    @Column(name ="token",length = 100)
+    private String token;
 
 }
